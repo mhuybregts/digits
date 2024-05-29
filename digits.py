@@ -9,17 +9,18 @@ class Digits:
     """
     # The number of digits (0-9 in this case)
     NUMBER_DIGITS = 10
+
     # For determining the likelihood of showing an unsaved digit
     PROBABILITY_RANGE = 50
     PROBABILITY_FACTOR = 3
 
     def __init__(self) -> None:
         self.score = 0
-        self.digits = [False] * Digits.NUMBER_DIGITS
+        self.digits = [False] * self.NUMBER_DIGITS
 
     def __getmatch__(self) -> bool:
-        val = random.randint(0, Digits.PROBABILITY_RANGE)
-        return val > self.score * Digits.PROBABILITY_FACTOR
+        val = random.randint(0, self.PROBABILITY_RANGE)
+        return val > self.score * self.PROBABILITY_FACTOR
 
     def get_digit(self) -> int:
         """
@@ -33,7 +34,7 @@ class Digits:
                           if self.digits[num]]
             return random.choice(new_digits)
 
-        return random.randint(0, Digits.NUMBER_DIGITS - 1)
+        return random.randint(0, self.NUMBER_DIGITS - 1)
 
     def save(self, digit: int) -> bool:
         """
@@ -41,7 +42,7 @@ class Digits:
         been saved, the function returns false, otherwise the
         function returns true.
         """
-        if digit < 0 or digit > Digits.NUMBER_DIGITS:
+        if digit < 0 or digit > self.NUMBER_DIGITS:
             return False
 
         if not self.digits[digit]:
@@ -56,7 +57,7 @@ class Digits:
         been matched, the function returns false, othewrise the
         function returns true.
         """
-        if digit < 0 or digit > Digits.NUMBER_DIGITS:
+        if digit < 0 or digit > self.NUMBER_DIGITS:
             return False
 
         if self.digits[digit]:
