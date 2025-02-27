@@ -9,9 +9,9 @@ if __name__ == "__main__":
         sys.stdout.write("\033[K")
 
     print("Welcome to Digits!")
-    print("You will be a shown a digit from 0 to 9")
-    print("You can save a digit by pressing S")
-    print("You can match a digit by pressing M")
+    print("You will be shown a digit from 0 to 9")
+    print("To save a digit, press S")
+    print("To match a digit, press M")
     print("You score points by matching digits")
     print("Once you successfully match a digit, you have to"
           "save it the next time you see it")
